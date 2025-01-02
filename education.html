@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Education</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gagaline&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style_additional.css">
+    <style>
+        /* RISE Animation */
+        @keyframes rise {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Body and Background Styling */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to top, #ffffff 50%, rgba(0, 0, 0, 0.8)), url('computer.jpg') center/cover no-repeat;
+            height: 100vh;
+            color: black;
+        }
+
+        		
+        /* Education Section Styling */
+        .education-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 60%;
+            margin: auto;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
+            animation: rise 1s ease-out;
+            text-align: center;
+            position: relative;
+            top: 60%; /* Adjusted from 50% */
+            transform: translateY(-40%); /* Balanced positioning */
+        }
+
+        .education-container h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #333333;
+        }
+
+        .education-container p {
+            font-size: 1.6rem;
+            margin-bottom: 2rem;
+            color: #555555;
+        }
+
+        .education-item {
+            margin-bottom: 2rem;
+        }
+
+        .education-item h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #333333;
+        }
+
+        .education-item span {
+            font-size: 1.5rem;
+            color: #777777;
+        }
+
+        /* Back Button */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #333333;
+            color: white;
+            font-size: 1.5rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #555555;
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .education-container {
+                width: 90%;
+                padding: 1.5rem;
+                top: 65%; /* Adjust for smaller screens */
+                transform: translateY(-35%);
+            }
+            .education-container h1 {
+                font-size: 2.5rem;
+            }
+            .education-container p {
+                font-size: 1.4rem;
+            }
+        }
+        .toggle .toggle-icon {
+            font-size: 24px;
+            color: black;
+        }
+        .toggle {
+            display: flex;
+            background-color: whitesmoke;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="Portfolio.html" class="logo">Jezreel</a>
+        <nav>
+            <a href="skills.html">Skills</a>
+            <a href="education.html" class="active">Education</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="toggle">
+            <a href="Portfolio.html"><i class='bx bxs-home-circle toggle-icon'></i></a>
+        </div>
+    </header>
+
+    <section class="education-container">
+		<p>Here’s a glimpse of my educational journey—highlighting the schools, universities, completed courses, and the ones I’m currently pursuing!</p>
+        <div class="education-list">
+            <div class="education-item">
+                <h3>Medi-Caps University</h3>
+                <span> B.TECH - Information Technology (2022 - 2026)</span>
+            </div>
+            <div class="education-item">
+                <h3>Atomic Energy Central School</h3>
+                <span>High School Diploma (2020 - 2022)</span>
+            </div>
+        </div>
+        <a href="Portfolio.html" class="btn">Go Back</a>
+    </section>
+</body>
+</html>
