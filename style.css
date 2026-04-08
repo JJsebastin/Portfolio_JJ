@@ -1,3 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #efefef;
+    color: #151515;
+    min-height: 100vh;
+}
+
+/* -------- Landing page redesign -------- */
+.landing-page {
+    overflow-x: hidden;
+}
+
+.portfolio-shell {
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 4rem 4rem 6rem;
+    position: relative;
+}
+
+.top-strip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+    font-size: 3rem;
+}
+
+.brand-icon {
+    width: 6rem;
+    height: 6rem;
+    border: 2px solid #111;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 2.8rem;
+}
+
+.site-tag {
+    font-size: 4rem;
+    font-weight: 500;
+}
+
+.year {
+    font-size: 4rem;
+    border-bottom: 2px solid #111;
+}
+
+.bg-word {
+    position: absolute;
+    top: 44%;
+    transform: translateY(-50%);
+    font-size: 26rem;
+    color: rgba(0, 0, 0, 0.03);
+    letter-spacing: 0.3rem;
+    font-weight: 700;
+    pointer-events: none;
+    user-select: none;
+}
+
+.bg-word.left { left: -6rem; }
+.bg-word.right { right: -3rem; }
+
+.showcase-wrap {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 6rem;
+}
+
+.showcase-card {
+    width: min(1050px, 95vw);
+    background: #f9f9f9;
+    border: 3px solid #171717;
+    border-radius: 3.2rem;
+    box-shadow: 10px 14px 0 #171717;
+    transform: rotate(-2.2deg);
+    padding: 2.8rem 3.8rem 2.8rem;
+    position: relative;
+}
+
+.card-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.4rem;
+}
+
+nav a {
+    color: #252525;
+    font-size: 1.45rem;
+    margin-right: 2.4rem;
+}
+
+nav a.active {
+    font-weight: 700;
+}
+
+.book-call {
+    color: #111;
+    font-size: 1.45rem;
+    border-bottom: 1px solid #111;
+}
+
+.designer-label {
+    position: absolute;
+    left: 0.8rem;
+    top: 44%;
+    transform: rotate(-90deg);
+    transform-origin: left top;
+    color: #9b9b9b;
+    font-size: 1.8rem;
+}
+
+.stats-row {
+    display: flex;
+    gap: 6rem;
+    margin: 1.4rem 0 2rem 9rem;
+}
+
+.stats-row h3 {
+    font-size: 5rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.stats-row p {
+    font-size: 1.7rem;
+    color: #555;
+    margin-top: 0.4rem;
+}
+
+.hero-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.intro-copy {
+    margin-left: 2rem;
+}
+
+.intro-copy h2 {
+    font-size: clamp(8rem, 11vw, 16rem);
+    font-weight: 500;
+    line-height: 0.95;
+}
+
+.intro-copy p {
+    font-size: 2.4rem;
+    max-width: 50rem;
+    margin-top: 0.8rem;
+}
+
+.scroll-tip,
+.outer-scroll {
+    font-size: 3.1rem;
+    margin-top: 2.4rem;
+}
+
+.portrait-frame {
+    width: 40%;
+    max-width: 380px;
+    filter: grayscale(100%);
+}
+
+.portrait-frame img {
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+}
+
+.year-vertical {
+    position: absolute;
+    left: 1.4rem;
+    bottom: 2.4rem;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    color: #9a9a9a;
+    font-size: 1.5rem;
+}
+
+.outer-scroll {
+    align-self: flex-end;
+    margin-bottom: 5rem;
+}
+
+/* -------- Shared header for secondary pages -------- */
+header {
+    background: #ffffff;
+    padding: 2rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo {
+    font-size: 4.6rem;
+    color: #1d2d44;
+    font-weight: 700;
+}
+
+.toggle .toggle-icon {
+    color: #6b21a8;
+    font-size: 2rem;
+}
+
+section {
+    padding: 6rem 9%;
+}
+
+.btn {
+    padding: 1.2rem 2.8rem;
+    border-radius: 999px;
+    border: 2px solid #95db1d;
+    background: transparent;
+    color: #95db1d;
+    font-size: 1.6rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (max-width: 1024px) {
+    .site-tag { font-size: 2.8rem; }
+    .year { font-size: 2.8rem; }
+    .showcase-card { transform: none; }
+    .bg-word { display: none; }
+    .stats-row { margin-left: 2rem; }
+    .intro-copy p { font-size: 1.8rem; }
+}
+
+@media (max-width: 768px) {
+    .portfolio-shell { padding: 2rem; }
+    .top-strip { font-size: 2rem; }
+    .brand-icon { width: 4.8rem; height: 4.8rem; font-size: 2rem; }
+    .site-tag, .year { font-size: 2rem; }
+    .card-topbar { flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .hero-content { flex-direction: column; align-items: flex-start; }
+    .portrait-frame { width: 100%; max-width: 280px; }
+    .stats-row { margin-left: 0; gap: 2.4rem; }
+    .stats-row h3 { font-size: 3.8rem; }
+    .intro-copy { margin-left: 0; }
+    .designer-label, .year-vertical, .outer-scroll { display: none; }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
 *{
