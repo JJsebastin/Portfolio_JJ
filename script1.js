@@ -1,40 +1,44 @@
 // Typing effect for dynamic text
-const typingText = document.querySelector('.typing-text span');
+const typingTarget = document.querySelector('.typing-text span');
 const words = ["Software Developer", "Cybersecurity Enthusiast", "Python Programmer"];
 let wordIndex = 0;
 let charIndex = 0;
 
 function typeEffect() {
+    if (!typingTarget) return;
+
     if (charIndex < words[wordIndex].length) {
-        typingText.textContent += words[wordIndex].charAt(charIndex);
+        typingTarget.textContent += words[wordIndex].charAt(charIndex);
         charIndex++;
-        setTimeout(typeEffect, 150);
+        setTimeout(typeEffect, 120);
     } else {
-        setTimeout(deleteEffect, 1000);
+        setTimeout(deleteEffect, 900);
     }
 }
 
 function deleteEffect() {
+    if (!typingTarget) return;
+
     if (charIndex > 0) {
-        typingText.textContent = typingText.textContent.slice(0, -1);
+        typingTarget.textContent = typingTarget.textContent.slice(0, -1);
         charIndex--;
-        setTimeout(deleteEffect, 100);
+        setTimeout(deleteEffect, 70);
     } else {
         wordIndex = (wordIndex + 1) % words.length;
-        setTimeout(typeEffect, 500);
+        setTimeout(typeEffect, 400);
     }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     typeEffect();
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll("nav a").forEach(link => {
+    // Smooth scrolling only for internal hash links
+    document.querySelectorAll("nav a[href^='#']").forEach(link => {
         link.addEventListener("click", function (e) {
+            const target = document.querySelector(this.getAttribute("href"));
+            if (!target) return;
             e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
+            target.scrollIntoView({ behavior: "smooth" });
         });
     });
 });
