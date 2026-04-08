@@ -3,85 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jezreel | Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>Jezreel | Personal Portfolio</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="style_additional.css">
-    <script defer src="script1.js"></script>
-    <script defer src="script2.js"></script>
 </head>
-<body>
-    <header>
-        <a href="Portfolio.html" class="logo">Jezreel</a>
-        <nav>
-            <a href="skills.html">Skills</a>
-            <a href="education.html">Education</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-        <div class="toggle">
-            <a href="Portfolio.html"><i class='bx bxs-home-circle toggle-icon'></i></a>
-        </div>
-    </header>
-
-    <main>
-        <section class="home" id="home">
-            <div class="photo-frame">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" alt="Portrait of Jezreel">
-            </div>
-            <div class="home-content">
-                <h1>Hi, It's <span>Jezreel</span></h1>
-                <h3>I am a <span class="typing-text"><span></span></span></h3>
-                <p>I build secure, practical software solutions and enjoy turning ideas into polished digital experiences.</p>
-
-                <div class="hero-actions">
-                    <a href="contact.html" class="btn">Hire Me</a>
-                    <a href="blog.html" class="btn btn-outline">Read My Blog</a>
-                </div>
-
-                <div class="social-icons">
-                    <a href="https://www.quora.com/profile/Jezreel-Sebastin" aria-label="Quora"><i class='bx bxl-quora'></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class='bx bxl-linkedin'></i></a>
-                    <a href="#" aria-label="GitHub"><i class='bx bxl-github'></i></a>
-                </div>
-            </div>
+<body class="landing-page">
+    <main class="portfolio-shell">
+        <section class="top-strip" aria-label="Portfolio intro row">
+            <div class="brand-icon"><i class='bx bxs-star'></i></div>
+            <p class="site-tag">Personal portfolio website</p>
+            <p class="year">2026</p>
         </section>
 
-        <section class="section-block" id="highlights">
-            <h2>Portfolio Highlights</h2>
-            <div class="cards-grid">
-                <article class="card">
-                    <h3>Clear Value Proposition</h3>
-                    <p>Stronger headline and role-focused messaging help visitors understand your strengths in seconds.</p>
-                </article>
-                <article class="card">
-                    <h3>Better Visual Hierarchy</h3>
-                    <p>Refined spacing, card layout, and section structure guide users naturally across your profile.</p>
-                </article>
-                <article class="card">
-                    <h3>Action-Driven Content</h3>
-                    <p>Prominent CTAs invite recruiters and collaborators to contact you or explore your work.</p>
-                </article>
-            </div>
-        </section>
+        <h1 class="bg-word left">PORT</h1>
+        <h1 class="bg-word right">FOLIO</h1>
 
-        <section class="section-block" id="blog-plan">
-            <h2>Blog Section Plan</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <h4>Phase 1: Foundation</h4>
-                    <p>Create categories (Development, Cybersecurity, Career Notes), add article cards, and consistent post metadata.</p>
+        <section class="showcase-wrap" aria-label="Hero showcase">
+            <article class="showcase-card">
+                <div class="card-topbar">
+                    <nav>
+                        <a href="Portfolio.html" class="active">About Me</a>
+                        <a href="skills.html">Portfolio</a>
+                        <a href="education.html">Services</a>
+                        <a href="blog.html">Blog</a>
+                    </nav>
+                    <a href="contact.html" class="book-call">Book A Call <i class='bx bx-up-arrow-alt'></i></a>
                 </div>
-                <div class="timeline-item">
-                    <h4>Phase 2: Publishing Workflow</h4>
-                    <p>Write 3 starter posts, set a monthly cadence, and highlight a featured post on the homepage.</p>
+
+                <div class="designer-label">Software Developer</div>
+
+                <div class="stats-row">
+                    <div>
+                        <h3>+12</h3>
+                        <p>Projects completed</p>
+                    </div>
+                    <div>
+                        <h3>+04</h3>
+                        <p>Internships & roles</p>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <h4>Phase 3: Growth</h4>
-                    <p>Add search/tag filtering, newsletter CTA, and project case-study articles to attract recruiters.</p>
+
+                <div class="hero-content">
+                    <div class="intro-copy">
+                        <h2>Hello</h2>
+                        <p>— It’s Jezreel, a software developer focused on modern web experiences and practical security.</p>
+                        <p class="scroll-tip">Scroll down <i class='bx bx-down-arrow-alt'></i></p>
+                    </div>
+                    <div class="portrait-frame">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=80" alt="Jezreel portrait">
+                    </div>
                 </div>
-            </div>
+
+                <p class="year-vertical">2026</p>
+            </article>
+
+            <p class="outer-scroll">Scroll down <i class='bx bx-down-arrow-alt'></i></p>
         </section>
     </main>
 </body>
