@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio Website</title>
+  <meta name="description" content="Premium portfolio of Mamun, Cybersecurity Analyst & AI Developer">
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.min.js"></script>
+</head>
+
+<body>
+
+  <!-- Loading Overlay -->
+  <div id="loader">
+    <div class="loader-text">.JJ.</div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo hover-target">Jezreel Sebastin</a>
+      <ul class="nav-links">
+        <li><a href="#home" class="hover-target">Home</a></li>
+        <li><a href="#about" class="hover-target">About</a></li>
+        <li><a href="#projects" class="hover-target">Projects</a></li>
+        <li><a href="#experience" class="hover-target">Experience</a></li>
+        <li><a href="#contact" class="hover-target">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-3d" id="canvas-container"></div>
+    <div class="container hero-grid">
+      <div class="hero-content reveal">
+        <div class="section-indicator">Portfolio 2026</div>
+        <h1 class="hero-title heading-editorial">
+          Student<br>
+          <span class="accent">& Learner</span>
+        </h1>
+        <p class="hero-subtitle">
+          Crafting intelligent systems and secure architectures. Trying to update myself with cutting-edge AI 
+          Algorithms.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary hover-target">View Work</a>
+          <a href="#contact" class="btn btn-outline hover-target">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-indicator">01 — About</div>
+        <h2 class="section-title heading-editorial">The Process in making</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>I am a multidisciplinary developer focused on the intersection of artificial intelligence and
+            cybersecurity. With a passion for clean code and secure architectures, I build systems that are not only
+            intelligent but resilient.</p>
+          <p>My approach combines analytical rigor with creative problem-solving. Whether investigating vulnerabilities,
+            developing RAG-based AI assistants, or crafting premium web experiences, I prioritize performance, security,
+            and elegant design.</p>
+          <p>Based in the digital realm, constantly learning, and always pushing the boundaries of what's possible with
+            modern web technologies and AI models.</p>
+        </div>
+        <div class="about-image-wrapper reveal">
+          <img src="assets/images/AI_photo.jpg" alt="Mamun Portrait" class="about-image hover-target">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" style="background-color: var(--card-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-indicator">02 — Expertise</div>
+        <h2 class="section-title heading-editorial">Core Capabilities</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-category reveal">
+          <h3>Cybersecurity</h3>
+          <ul class="skill-list">
+            <li>Vulnerability Assessment</li>
+            <li>Penetration Testing</li>
+            <li>Network Security</li>
+            <li>Threat Analysis (SIEM)</li>
+            <li>Cryptography</li>
+          </ul>
+        </div>
+        <div class="skill-category reveal" style="transition-delay: 0.1s;">
+          <h3>AI & Machine Learning</h3>
+          <ul class="skill-list">
+            <li>LLM Integration & Prompting</li>
+            <li>RAG Architectures</li>
+            <li>Predictive Modeling</li>
+            <li>NLP & Chatbots</li>
+            <li>Python Data Science Stack</li>
+          </ul>
+        </div>
+        <div class="skill-category reveal" style="transition-delay: 0.2s;">
+          <h3>Development</h3>
+          <ul class="skill-list">
+            <li>Frontend (HTML, CSS, JS)</li>
+            <li>Backend (Node.js, Python)</li>
+            <li>Database (SQL, NoSQL)</li>
+            <li>Three.js & WebGL</li>
+            <li>API Design & Integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Timeline -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-header reveal text-center"
+        style="text-align: center; display: flex; flex-direction: column; align-items: center;">
+        <div class="section-indicator">03 — Journey</div>
+        <h2 class="section-title heading-editorial">Experience & Achievements</h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <span class="timeline-date">2026 - Present</span>
+          <h3 class="timeline-title">Student Trainee</h3>
+          <h4 class="timeline-company">Code in Place</h4>
+          <p class="timeline-desc">Engaged in learning activities and making projects related to Python. </p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-date">(Jan)2026 - (Apr)2026   </span>
+          <h3 class="timeline-title">Student Intern</h3>
+          <h4 class="timeline-company">Medicaps University</h4>
+          <p class="timeline-desc">Developed an Multimodal Insurance application and deployed it on aws cloud platform using github and docker
+            Integrated RAG agents and trained them for Multimodal tasks and research purposes.
+          </p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-date">(Jun)2025 - (Jul)2025</span>
+          <h3 class="timeline-title">Project Intern</h3>
+          <h4 class="timeline-company">RRCAT</h4>
+          <p class="timeline-desc">Collaborated on designing and developing a AI chatbot using agents
+            for INDUS plant operators and resolving Anomalies and error related to the plant operations.
+            Filtered Data and fine-tuned the chatbot Application.</p>
+        </div>
+
+        <div class="timeline-item reveal">
+          <span class="timeline-date">2023</span>
+          <h3 class="timeline-title">Certified Ethical Hacker</h3>
+          <h4 class="timeline-company">EC-Council</h4>
+          <p class="timeline-desc">Demonstrated comprehensive knowledge of ethical hacking phases, various attack
+            vectors, and preventative countermeasures.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Showcase -->
+  <section id="projects" style="background-color: var(--card-bg);">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-indicator">04 — Work</div>
+        <h2 class="section-title heading-editorial">Selected Projects</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1 -->
+        <div class="project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="assets/images/Insuranc_hub.png" alt="Insurance Multimodal Application" class="project-img">
+          </div>
+          <div class="project-content">
+            <span class="project-category"> GenAI, AgenticAI</span>
+            <h3 class="project-title">Insurance Hub</h3>
+            <p class="project-desc">A real-time monitoring interface helps customers to view and analyze their insurance
+              policies, ask queries to chatbots, and gives roadmap for claiming their insurance.</p>
+            <a href="https://github.com/ChandreshBhati/Insurance-App-D12-G2" class="project-link hover-target">View
+              Project</a>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-card reveal" style="transition-delay: 0.1s;">
+          <div class="project-img-wrapper">
+            <img src="assets/images/ai_chatbot.png" alt="Learning and awareness chatbot" class="project-img">
+          </div>
+          <div class="project-content">
+            <span class="project-category">Web application</span>
+            <h3 class="project-title">LAPADOS</h3>
+            <p class="project-desc">A learning and awareness platform for ANTI-DOPING in sports, briefly called as LAPADOS is a curated web app to help athletes, 
+              coaches and normal people be knowledgeable and informed about Doping issues..</p>
+            <a href="https://github.com/JJsebastin/LAPADOS" class="project-link hover-target">View Project</a>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-card reveal">
+          <div class="project-img-wrapper">
+            <img src="assets/images/rag_sql_assistant.png" alt="RAG SQL Assistant" class="project-img">
+          </div>
+          <div class="project-content">
+            <span class="project-category">Data Engineering, Data analytics</span>
+            <h3 class="project-title">NBA dream team generator</h3>
+            <p class="project-desc">Streamlit application designed to give insights about NBA individual player stats, create dream team seeds,
+              and analyse their win percetages.</p>
+            <a href="https://github.com/JJsebastin/NBA_DreamTeam_generator" class="project-link hover-target">View Project</a>
+          </div>
+        </div>
+
+      
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="contact-content reveal">
+        <div class="section-indicator" style="justify-content: center; margin-bottom: 2rem;">05 — Connect</div>
+        <h2 class="section-title heading-editorial">Let's build something secure & intelligent.</h2>
+        <p class="contact-text">Currently open for new opportunities, collaborations, and discussions regarding AI and
+          cybersecurity.</p>
+        <div class="contact-links">
+          <a href="mailto:hello@example.com" class="contact-link hover-target">hello@mamun.dev</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <p>&copy; 2026 Mamun. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/jezreel-sebastin/" class="hover-target">LinkedIn</a>
+        <a href="https://github.com/JJsebastin" class="hover-target">GitHub</a>
+        <a href="#" class="hover-target">Twitter</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
