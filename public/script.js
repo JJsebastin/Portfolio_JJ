@@ -14,12 +14,14 @@ document.addEventListener('DOMContentLoaded', () => {
 // --- Loader ---
 function initLoader() {
   const loader = document.getElementById('loader');
-  setTimeout(() => {
-    loader.style.opacity = '0';
+  if (loader) {
     setTimeout(() => {
-      loader.style.display = 'none';
-    }, 600);
-  }, 1000);
+      loader.style.opacity = '0';
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 600);
+    }, 500);
+  }
 }
 
 // --- Custom Cursor ---
@@ -35,15 +37,18 @@ function initCustomCursor() {
     const posX = e.clientX;
     const posY = e.clientY;
 
-    // Dot follows immediately
-    dot.style.left = `${posX}px`;
-    dot.style.top = `${posY}px`;
+    if(dot) {
+      dot.style.left = `${posX}px`;
+      dot.style.top = `${posY}px`;
+    }
 
-    // Outline follows with slight delay using requestAnimationFrame for smoothness
-    outline.animate({
-      left: `${posX}px`,
-      top: `${posY}px`
-    }, { duration: 500, fill: "forwards" });
+    if(outline) {
+      // Outline follows with slight delay using requestAnimationFrame for smoothness
+      outline.animate({
+        left: `${posX}px`,
+        top: `${posY}px`
+      }, { duration: 500, fill: "forwards" });
+    }
   });
 
   hoverTargets.forEach(target => {
@@ -63,17 +68,21 @@ function initScrollEffects() {
 
   window.addEventListener('scroll', () => {
     // Navbar Blur Effect
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+    if (navbar) {
+      if (window.scrollY > 50) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
     }
 
     // Scroll Progress
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    progressBar.style.width = scrolled + "%";
+    if (progressBar) {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + "%";
+    }
   });
 }
 
