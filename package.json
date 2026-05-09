@@ -2,10 +2,11 @@
   "name": "portfolio",
   "version": "1.0.0",
   "scripts": {
-    "build": "tailwindcss -i ./public/src/input.css -o ./public/style.css --minify",
-    "watch": "tailwindcss -i ./public/src/input.css -o ./public/style.css --watch",
+    "build": "tailwindcss -i ./public/src/input.css -o ./public/tailwind-output.css --minify",
+    "watch": "tailwindcss -i ./public/src/input.css -o ./public/tailwind-output.css --watch",
     "start": "node server.js",
-    "build:render": "npm install && npm run build"
+    "build:render": "npm install && npm run build",
+    "build:blogs": "node update-blogs.js"
   },
   "dependencies": {
     "express": "^5.2.1",
