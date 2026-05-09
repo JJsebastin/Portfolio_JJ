@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generating Unique Usernames - Blog</title>
+  <meta name="description" content="Blog post">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo hover-target">Jezreel Sebastin</a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="hover-target">Home</a></li>
+        <li><a href="index.html#about" class="hover-target">About</a></li>
+        <li><a href="index.html#projects" class="hover-target">Projects</a></li>
+        <li><a href="index.html#experience" class="hover-target">Experience</a></li>
+        <li><a href="blog.html" class="active hover-target">Blog</a></li>
+        <li><a href="index.html#contact" class="hover-target">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Blog Post Section -->
+  <section class="blog-post-section" style="padding-top: 8rem; min-height: 80vh;">
+    <div class="container" style="max-width: 800px;">
+      
+      <a href="blog.html" class="back-link hover-target">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        Back to blog
+      </a>
+
+      <div id="post-meta-container" class="post-meta">
+        <!-- Meta injected via JS -->
+      </div>
+
+      <h1 id="post-title" class="post-title">Loading...</h1>
+      
+      <div id="post-content" class="post-content">
+        <!-- Content injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content" style="justify-content: center;">
+      <p>&copy; 2026 Jezreel. </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const slug = urlParams.get('slug');
+
+    if (!slug) {
+      document.getElementById('post-title').innerText = 'Post not found';
+    } else {
+      // Fetch metadata from blogs.json
+      fetch('blogs.json')
+        .then(res => res.json())
+        .then(blogs => {
+          const blog = blogs.find(b => b.slug === slug);
+          if (blog) {
+            document.getElementById('post-title').innerText = blog.title;
+            document.getElementById('post-meta-container').innerHTML = `
+              <span class="meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                ${blog.date}
+              </span>
+              <span class="meta-item">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                ${Math.ceil(blog.excerpt.length / 50)} MIN READ
+              </span>
+            `;
+          }
+        });
+
+      // Fetch and render markdown
+      fetch(`blogs/${slug}.md`)
+        .then(res => {
+          if (!res.ok) throw new Error('Markdown file not found');
+          return res.text();
+        })
+        .then(text => {
+          // Remove frontmatter-like lines from top
+          const content = text.replace(/^(Title|Date|Tags|Excerpt):.*$/gm, '').trim();
+          
+          // Custom marked extension to prevent marked from parsing inside math blocks
+          const mathExtension = {
+            name: 'math',
+            level: 'inline',
+            start(src) { return src.indexOf('$'); },
+            tokenizer(src, tokens) {
+              // Match block math $$...$$
+              let match = /^\\$\\$([\\s\\S]+?)\\$\\$/.exec(src);
+              if (match) {
+                return {
+                  type: 'math',
+                  raw: match[0],
+                  text: match[1],
+                  displayMode: true
+                };
+              }
+              // Match inline math $...$
+              match = /^\\$([^\\n]+?)\\$/.exec(src);
+              if (match) {
+                return {
+                  type: 'math',
+                  raw: match[0],
+                  text: match[1],
+                  displayMode: false
+                };
+              }
+            },
+            renderer(token) {
+              // Output in a format MathJax will pick up safely
+              if (token.displayMode) {
+                return '$$' + token.text + '$$';
+              } else {
+                return '\\\\(' + token.text + '\\\\)';
+              }
+            }
+          };
+          
+          marked.use({ extensions: [mathExtension] });
+          document.getElementById('post-content').innerHTML = marked.parse(content);
+
+          // Tell MathJax to process the new math on the page
+          if (window.MathJax) {
+            MathJax.typesetPromise([document.getElementById('post-content')]).catch(err => console.error(err));
+          }
+        })
+        .catch(err => {
+          document.getElementById('post-content').innerHTML = '<p>Error loading blog post content.</p>';
+        });
+    }
+  </script>
+</body>
+
+</html>

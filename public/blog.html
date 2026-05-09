@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Portfolio Website</title>
+  <meta name="description" content="Blog and articles">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo hover-target">Jezreel Sebastin</a>
+      <ul class="nav-links">
+        <li><a href="index.html#home" class="hover-target">Home</a></li>
+        <li><a href="index.html#about" class="hover-target">About</a></li>
+        <li><a href="index.html#projects" class="hover-target">Projects</a></li>
+        <li><a href="index.html#experience" class="hover-target">Experience</a></li>
+        <li><a href="blog.html" class="active hover-target">Blog</a></li>
+        <li><a href="index.html#contact" class="hover-target">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Blog List Section -->
+  <section class="blog-section" style="padding-top: 8rem; min-height: 80vh;">
+    <div class="container">
+      <h1 class="heading-editorial" style="font-family: var(--font-body); font-size: 2rem; font-weight: 700; margin-bottom: 3rem; color: var(--text);">Blog</h1>
+      
+      <div class="blog-layout">
+        <!-- Sidebar Filter -->
+        <aside class="blog-sidebar">
+          <h3 style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; color: var(--text);">Filter</h3>
+          <div class="filter-options" id="filter-options">
+            <!-- Filter checkboxes injected via JS -->
+          </div>
+        </aside>
+
+        <!-- Blog Feed -->
+        <main class="blog-feed">
+          <p id="post-count" style="font-size: 0.9rem; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem;">Showing 0 posts</p>
+          
+          <div class="blog-cards" id="blog-container">
+            <!-- Cards will be injected here via JS -->
+            <p>Loading blogs...</p>
+          </div>
+        </main>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content" style="justify-content: center;">
+      <p>&copy; 2026 Jezreel. </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    let allBlogs = [];
+    let selectedTags = new Set();
+    
+    // Default predefined tags requested by user
+    const predefinedTags = ['DSA', 'CN', 'DBMS', 'OS', 'COA', 'Digital', 'TOC', 'System design'];
+
+    function renderBlogs() {
+      const container = document.getElementById('blog-container');
+      container.innerHTML = '';
+      
+      const filteredBlogs = selectedTags.size === 0 
+        ? allBlogs 
+        : allBlogs.filter(blog => blog.tags.some(tag => selectedTags.has(tag.toUpperCase())));
+        
+      document.getElementById('post-count').innerText = `Showing ${filteredBlogs.length} of ${allBlogs.length} posts`;
+
+      if (filteredBlogs.length === 0) {
+        container.innerHTML = '<p>No blogs found for the selected filters.</p>';
+        return;
+      }
+
+      filteredBlogs.forEach(blog => {
+        const tagsHtml = blog.tags.map(tag => `<span class="blog-tag">${tag}</span>`).join('');
+        const cardHtml = `
+          <a href="blog-post.html?slug=${blog.slug}" class="blog-card-link hover-target">
+            <div class="blog-card">
+              <p class="blog-date">${blog.date}</p>
+              <h2 class="blog-title">${blog.title}</h2>
+              <p class="blog-excerpt">${blog.excerpt}</p>
+              <div class="blog-tags">
+                ${tagsHtml}
+              </div>
+              <div class="blog-arrow">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+              </div>
+            </div>
+          </a>
+        `;
+        container.insertAdjacentHTML('beforeend', cardHtml);
+      });
+    }
+
+    function handleFilterChange(e) {
+      const tag = e.target.value.toUpperCase();
+      if (e.target.checked) {
+        selectedTags.add(tag);
+      } else {
+        selectedTags.delete(tag);
+      }
+      renderBlogs();
+    }
+
+    // Fetch and render blogs
+    fetch('blogs.json')
+      .then(res => res.json())
+      .then(blogs => {
+        allBlogs = blogs;
+        
+        // Extract unique tags from blogs
+        const blogTags = new Set();
+        blogs.forEach(blog => {
+          if (blog.tags) blog.tags.forEach(t => blogTags.add(t.toUpperCase()));
+        });
+        
+        // Combine predefined with blog tags
+        const allTagsToDisplay = new Set(predefinedTags.map(t => t.toUpperCase()));
+        blogTags.forEach(t => allTagsToDisplay.add(t));
+        
+        // Render filter options
+        const filterContainer = document.getElementById('filter-options');
+        filterContainer.innerHTML = '';
+        
+        const sortedTags = Array.from(allTagsToDisplay).sort();
+        
+        sortedTags.forEach(tag => {
+          // Find original casing if possible, else capitalize first letter
+          let originalTag = predefinedTags.find(t => t.toUpperCase() === tag);
+          if (!originalTag) {
+            // Check if it's in a blog post with specific casing
+            for (let b of blogs) {
+              const match = b.tags.find(t => t.toUpperCase() === tag);
+              if (match) { originalTag = match; break; }
+            }
+          }
+          if (!originalTag) originalTag = tag;
+          
+          const label = document.createElement('label');
+          label.className = 'filter-label hover-target';
+          label.innerHTML = `
+            <input type="checkbox" class="filter-checkbox hover-target" value="${tag}">
+            ${originalTag}
+          `;
+          const checkbox = label.querySelector('input');
+          checkbox.addEventListener('change', handleFilterChange);
+          filterContainer.appendChild(label);
+        });
+
+        renderBlogs();
+      })
+      .catch(err => {
+        console.error('Error loading blogs:', err);
+        document.getElementById('blog-container').innerHTML = '<p>Failed to load blogs.</p>';
+      });
+  </script>
+</body>
+
+</html>

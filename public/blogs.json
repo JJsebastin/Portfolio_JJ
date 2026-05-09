@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "fine-tuning-rag-agents",
+    "title": "Fine-Tuning RAG Agents for Domain-Specific Tasks",
+    "date": "MAY 05, 2026",
+    "tags": [
+      "AI",
+      "LLM",
+      "RAG"
+    ],
+    "excerpt": "A deep dive into customizing Retrieval-Augmented Generation (RAG) agents to accurately handle domain-specific data and inquiries."
+  },
+  {
+    "slug": "securing-web-applications",
+    "title": "5 Common Vulnerabilities in Modern Web Applications",
+    "date": "JAN 18, 2026",
+    "tags": [
+      "CYBERSECURITY",
+      "WEB DEVELOPMENT"
+    ],
+    "excerpt": "Learn about the top security flaws affecting modern web apps and how to implement proactive countermeasures."
+  },
+  {
+    "slug": "graphs_basic",
+    "title": "Graph Algorithms and Complexities",
+    "date": "MAY 09, 2026",
+    "tags": [
+      "ALGORITHMS",
+      "DATA STRUCTURES",
+      "GRAPHS"
+    ],
+    "excerpt": "A comprehensive overview of essential graph algorithms, their time and space complexities, and fundamental theorems including DFS, BFS, Dijkstra's, and more."
+  }
+]

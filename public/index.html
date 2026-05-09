@@ -6,6 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio Website</title>
   <meta name="description" content="Premium portfolio of Mamun, Cybersecurity Analyst & AI Developer">
+  <meta name="color-scheme" content="light">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <!-- Three.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.164.1/build/three.min.js"></script>
@@ -34,6 +40,7 @@
         <li><a href="#about" class="hover-target">About</a></li>
         <li><a href="#projects" class="hover-target">Projects</a></li>
         <li><a href="#experience" class="hover-target">Experience</a></li>
+        <li><a href="blog.html" class="hover-target">Blog</a></li>
         <li><a href="#contact" class="hover-target">Contact</a></li>
       </ul>
     </div>
@@ -50,7 +57,7 @@
           <span class="accent">& Learner</span>
         </h1>
         <p class="hero-subtitle">
-          Crafting intelligent systems and secure architectures. Trying to update myself with cutting-edge AI 
+          Crafting intelligent systems and secure architectures. Trying to update myself with cutting-edge AI
           Algorithms.
         </p>
         <div class="hero-actions">
@@ -70,12 +77,13 @@
       </div>
       <div class="about-grid">
         <div class="about-text reveal">
-          <p>I am a multidisciplinary developer focused on the intersection of artificial intelligence and
-            cybersecurity. With a passion for clean code and secure architectures, I build systems that are not only
-            intelligent but resilient.</p>
-          <p>My approach combines analytical rigor with creative problem-solving. Whether investigating vulnerabilities,
-            developing RAG-based AI assistants, or crafting premium web experiences, I prioritize performance, security,
-            and elegant design.</p>
+          <p>I am a multidisciplinary developer focused on the intersection of Algorithms and
+            Data Engineering. With a passion for clean code and secure architectures, I build systems that are not only
+            intelligent but Efficient.</p>
+          <p>My approach combines analytical rigor understanding the Problem. Whether investigating vulnerabilities,
+            developing RAG-based AI assistants, or crafting premium web experiences, I prioritize performance, user
+            interface
+            and design.</p>
           <p>Based in the digital realm, constantly learning, and always pushing the boundaries of what's possible with
             modern web technologies and AI models.</p>
         </div>
@@ -94,35 +102,65 @@
         <h2 class="section-title heading-editorial">Core Capabilities</h2>
       </div>
       <div class="skills-grid">
-        <div class="skill-category reveal">
-          <h3>Cybersecurity</h3>
-          <ul class="skill-list">
-            <li>Vulnerability Assessment</li>
-            <li>Penetration Testing</li>
-            <li>Network Security</li>
-            <li>Threat Analysis (SIEM)</li>
-            <li>Cryptography</li>
-          </ul>
+        <div class="scroll-wrapper reveal" onclick="this.classList.toggle('open')">
+          <div class="scroll-roller">
+            <span class="scroll-title">
+              <span class="title-black">Core</span> <span class="title-orange">Subjects</span>
+            </span>
+          </div>
+          <div class="scroll-paper">
+            <div class="scroll-content">
+              <ul>
+                <li>Discrete Math</li>
+                <li>Computer Networks</li>
+                <li>Data Structure & Algo</li>
+                <li>Information Security</li>
+                <li>DBMS</li>
+                <li>Operating systems</li>
+              </ul>
+            </div>
+          </div>
+          <div class="scroll-bottom-roller"></div>
         </div>
-        <div class="skill-category reveal" style="transition-delay: 0.1s;">
-          <h3>AI & Machine Learning</h3>
-          <ul class="skill-list">
-            <li>LLM Integration & Prompting</li>
-            <li>RAG Architectures</li>
-            <li>Predictive Modeling</li>
-            <li>NLP & Chatbots</li>
-            <li>Python Data Science Stack</li>
-          </ul>
+
+        <div class="scroll-wrapper reveal" style="transition-delay: 0.1s;" onclick="this.classList.toggle('open')">
+          <div class="scroll-roller">
+            <span class="scroll-title">
+              <span class="title-black">AI</span> <span class="title-orange">& ML</span>
+            </span>
+          </div>
+          <div class="scroll-paper">
+            <div class="scroll-content">
+              <ul>
+                <li>LLM Integration</li>
+                <li>RAG Architectures</li>
+                <li>Prompt Engineering</li>
+                <li>NLP & Chatbots</li>
+                <li>Python Data Science Stack</li>
+              </ul>
+            </div>
+          </div>
+          <div class="scroll-bottom-roller"></div>
         </div>
-        <div class="skill-category reveal" style="transition-delay: 0.2s;">
-          <h3>Development</h3>
-          <ul class="skill-list">
-            <li>Frontend (HTML, CSS, JS)</li>
-            <li>Backend (Node.js, Python)</li>
-            <li>Database (SQL, NoSQL)</li>
-            <li>Three.js & WebGL</li>
-            <li>API Design & Integration</li>
-          </ul>
+
+        <div class="scroll-wrapper reveal" style="transition-delay: 0.2s;" onclick="this.classList.toggle('open')">
+          <div class="scroll-roller">
+            <span class="scroll-title">
+              <span class="title-black">Software</span> <span class="title-orange">Development</span>
+            </span>
+          </div>
+          <div class="scroll-paper">
+            <div class="scroll-content">
+              <ul>
+                <li>Frontend (HTML, CSS)</li>
+                <li>Backend (Flask, Python, Django)</li>
+                <li>Database - mySQL, SQLserver</li>
+                <li>StarUML</li>
+                <li>API Design & Integration</li>
+              </ul>
+            </div>
+          </div>
+          <div class="scroll-bottom-roller"></div>
         </div>
       </div>
     </div>
@@ -146,10 +184,11 @@
         </div>
 
         <div class="timeline-item reveal">
-          <span class="timeline-date">(Jan)2026 - (Apr)2026   </span>
+          <span class="timeline-date">(Jan)2026 - (Apr)2026 </span>
           <h3 class="timeline-title">Student Intern</h3>
           <h4 class="timeline-company">Medicaps University</h4>
-          <p class="timeline-desc">Developed an Multimodal Insurance application and deployed it on aws cloud platform using github and docker
+          <p class="timeline-desc">Developed an Multimodal Insurance application and deployed it on aws cloud platform
+            using github and docker
             Integrated RAG agents and trained them for Multimodal tasks and research purposes.
           </p>
         </div>
@@ -206,7 +245,8 @@
           <div class="project-content">
             <span class="project-category">Web application</span>
             <h3 class="project-title">LAPADOS</h3>
-            <p class="project-desc">A learning and awareness platform for ANTI-DOPING in sports, briefly called as LAPADOS is a curated web app to help athletes, 
+            <p class="project-desc">A learning and awareness platform for ANTI-DOPING in sports, briefly called as
+              LAPADOS is a curated web app to help athletes,
               coaches and normal people be knowledgeable and informed about Doping issues..</p>
             <a href="https://github.com/JJsebastin/LAPADOS" class="project-link hover-target">View Project</a>
           </div>
@@ -220,27 +260,42 @@
           <div class="project-content">
             <span class="project-category">Data Engineering, Data analytics</span>
             <h3 class="project-title">NBA dream team generator</h3>
-            <p class="project-desc">Streamlit application designed to give insights about NBA individual player stats, create dream team seeds,
+            <p class="project-desc">Streamlit application designed to give insights about NBA individual player stats,
+              create dream team seeds,
               and analyse their win percetages.</p>
-            <a href="https://github.com/JJsebastin/NBA_DreamTeam_generator" class="project-link hover-target">View Project</a>
+            <a href="https://github.com/JJsebastin/NBA_DreamTeam_generator" class="project-link hover-target">View
+              Project</a>
           </div>
         </div>
 
-      
+
       </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="contact">
+  <section id="contact" class="contact" style="background-color: var(--bg); padding-top: 5rem; padding-bottom: 5rem; border: none;">
     <div class="container">
-      <div class="contact-content reveal">
-        <div class="section-indicator" style="justify-content: center; margin-bottom: 2rem;">05 — Connect</div>
-        <h2 class="section-title heading-editorial">Let's build something secure & intelligent.</h2>
-        <p class="contact-text">Currently open for new opportunities, collaborations, and discussions regarding AI and
-          cybersecurity.</p>
-        <div class="contact-links">
-          <a href="mailto:hello@example.com" class="contact-link hover-target">hello@mamun.dev</a>
+      <div class="contact-content reveal" style="max-width: 800px; margin: 0 auto;">
+        <h2 class="section-title heading-editorial" style="color: var(--accent); font-family: var(--font-heading); font-style: italic; font-weight: 700; margin-bottom: 1rem; font-size: 3rem;">Let's Connect</h2>
+        <p class="contact-text" style="font-weight: 500; font-size: 1.1rem; max-width: 600px; margin: 0 auto 3rem auto; color: var(--text);">Do you have any questions or a project in mind? Let's connect! I am here to help and excited to hear from you. You can also take a look at my work.</p>
+        
+        <div class="connect-3d-wrapper">
+          <div class="connect-circle-bg"></div>
+          <img src="assets/images/avatar_3d_1778309436363.png" alt="3D Avatar" class="connect-avatar hover-target">
+          
+          <a href="https://www.linkedin.com/in/jezreel-sebastin/" target="_blank" class="connect-icon-link linkedin-icon hover-target">
+            <img src="assets/images/linkedin_3d_1778309459590.png" alt="LinkedIn" class="connect-icon">
+          </a>
+          <a href="https://quora.com" target="_blank" class="connect-icon-link quora-icon hover-target">
+            <img src="assets/images/quora_3d_1778309479065.png" alt="Quora" class="connect-icon">
+          </a>
+          <a href="#" target="_blank" class="connect-icon-link twitter-icon hover-target">
+            <img src="assets/images/twitter_x_3d_1778309508645.png" alt="Twitter" class="connect-icon">
+          </a>
+          <a href="https://github.com/JJsebastin" target="_blank" class="connect-icon-link github-icon hover-target">
+            <img src="assets/images/github_3d_1778309528728.png" alt="GitHub" class="connect-icon">
+          </a>
         </div>
       </div>
     </div>
@@ -248,13 +303,8 @@
 
   <!-- Footer -->
   <footer>
-    <div class="container footer-content">
-      <p>&copy; 2026 Mamun. All rights reserved.</p>
-      <div class="footer-links">
-        <a href="https://www.linkedin.com/in/jezreel-sebastin/" class="hover-target">LinkedIn</a>
-        <a href="https://github.com/JJsebastin" class="hover-target">GitHub</a>
-        <a href="#" class="hover-target">Twitter</a>
-      </div>
+    <div class="container footer-content" style="justify-content: center;">
+      <p>&copy; 2026 Jezreel. </p>
     </div>
   </footer>
 
